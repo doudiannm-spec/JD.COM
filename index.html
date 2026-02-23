@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东集团招聘 - 居家客服岗位</title>
+    
+    <!-- 京东官方favicon小图标 兼容所有浏览器 -->
+    <link rel="icon" type="image/x-icon" href="https://img10.360buyimg.com/imagetools/jfs/t1/19540/12/25801/113633/6495c369F2871c850/8c29974840800800.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://img10.360buyimg.com/imagetools/jfs/t1/19540/12/25801/113633/6495c369F2871c850/8c29974840800800.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://img10.360buyimg.com/imagetools/jfs/t1/19540/12/25801/113633/6495c369F2871c850/8c29974840800800.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* 替换为京东红主色，移除阿里橙/黄 */
+            --jd-red: #E31D15;
+            --jd-red-hover: #F03838;
+            --alibaba-dark: #1A1A1A;
+            --alibaba-light: #F5F5F5;
+            --alibaba-gray: #666666;
+            --alibaba-white: #FFFFFF;
+            --beige-bg: #F9F5EB;
+            --beige-light: #FFF9E6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: var(--alibaba-dark);
+            background-color: var(--beige-bg);
+            text-align: center;
+        }
+        
+        .header {
+            background-color: var(--alibaba-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        /* 京东LOGO样式：替换原图标，改为京东LOGO图片 */
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--alibaba-dark);
+        }
+        
+        .logo-text span {
+            color: var(--jd-red); /* 京东红高亮 */
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--alibaba-gray);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--jd-red); /* 悬停京东红 */
+        }
+        
+        .nav-links a.active {
+            color: var(--jd-red); /* 激活态京东红 */
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--jd-red); /* 下划线京东红 */
+        }
+        
+        .apply-btn {
+            background-color: var(--jd-red); /* 按钮京东红 */
+            color: var(--alibaba-white);
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin-left: 20px;
+        }
+        
+        .apply-btn:hover {
+            background-color: var(--jd-red-hover); /* 按钮悬停浅红 */
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--alibaba-dark);
+            cursor: pointer;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--alibaba-white);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+            padding: 15px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--alibaba-dark);
+            font-size: 16px;
+        }
+        
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: var(--jd-red); /* 下载按钮京东红 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: var(--jd-red-hover); /* 下载按钮悬停浅红 */
+        }
+        
+        .download-btn i {
+            margin-right: 8px;
+        }
+        
+        .qrcode-container {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .qrcode-img {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--alibaba-gray);
+        }
+        
+        .qrcode-text {
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--alibaba-gray);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(255, 246, 230, 0.95), rgba(255, 246, 230, 0.95));
+            color: var(--alibaba-dark);
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--jd-red); /* 副标题京东红 */
+            font-weight: 600;
+        }
+        
+        .hero-tagline {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--alibaba-gray);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-tagline span {
+            background-color: rgba(227, 29, 21, 0.1); /* 标签浅红背景 */
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: var(--alibaba-gray);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .job-info-section {
+            background-color: var(--beige-light);
+            padding: 60px 0;
+            margin-bottom: 60px;
+            border-radius: 10px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 80px 0 40px;
+            font-size: 2.5rem;
+            color: var(--alibaba-dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--alibaba-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+        
+        .job-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .info-card {
+            background-color: var(--alibaba-white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid var(--jd-red); /* 卡片顶部京东红边框 */
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-card-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--jd-red); /* 数字背景京东红 */
+            color: var(--alibaba-white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .info-card-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--alibaba-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .info-card-title i {
+            color: var(--jd-red); /* 卡片图标京东红 */
+        }
+        
+        .info-card-content {
+            color: var(--alibaba-gray);
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        .highlight {
+            color: var(--jd-red); /* 高亮文字京东红 */
+            font-weight: 600;
+        }
+        
+        .salary-section {
+            background-color: var(--alibaba-white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .salary-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--alibaba-dark);
+        }
+        
+        .salary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .salary-card {
+            background-color: var(--beige-light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .salary-card.day-shift {
+            border-color: var(--jd-red); /* 白班卡片京东红边框 */
+        }
+        
+        .salary-card.night-shift {
+            border-color: #333;
+        }
+        
+        .salary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .salary-type {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .day-shift .salary-type {
+            color: var(--jd-red); /* 白班文字京东红 */
+        }
+        
+        .night-shift .salary-type {
+            color: #333;
+        }
+        
+        .salary-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .day-shift .salary-amount {
+            color: var(--jd-red); /* 白班薪资京东红 */
+        }
+        
+        .night-shift .salary-amount {
+            color: #333;
+        }
+        
+        .salary-time {
+            color: var(--alibaba-gray);
+            font-size: 1.1rem;
+        }
+        
+        .service-scale-section {
+            background-color: var(--alibaba-white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .service-scale-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--alibaba-dark);
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .stat-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--jd-red); /* 统计数字京东红 */
+            margin-bottom: 5px;
+        }
+        
+        .stat-desc {
+            font-size: 14px;
+            color: var(--alibaba-gray);
+            line-height: 1.4;
+        }
+        
+        .user-box {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .user-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--alibaba-dark);
+            margin-bottom: 5px;
+        }
+        
+        .user-section {
+            height: 54px;
+            overflow: hidden;
+        }
+        
+        .scroll-wrapper {
+            list-style: none;
+            font-size: 14px;
+            color: var(--alibaba-gray);
+            line-height: 1.8;
+            animation: scrollUp 72s linear infinite;
+        }
+        
+        .scroll-wrapper li {
+            height: 18px;
+            margin: 5px 0;
+        }
+        
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+        
+        .scroll-wrapper:hover {
+            animation-play-state: paused;
+        }
+        
+        .service-cartoons {
+            position: relative;
+            width: 100%;
+            margin: 30px 0;
+        }
+        
+        .cartoon {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        
+        .cartoon-left {
+            left: 5%;
+        }
+        
+        .cartoon-right {
+            right: 5%;
+        }
+        
+        .cartoon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .apply-form-section {
+            background-color: var(--alibaba-white);
+            padding: 60px 0;
+            border-radius: 10px;
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .form-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--alibaba-dark);
+        }
+        
+        .apply-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--alibaba-dark);
+            text-align: left;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--jd-red); /* 输入框聚焦京东红边框 */
+            box-shadow: 0 0 0 2px rgba(227, 29, 21, 0.2); /* 聚焦浅红阴影 */
+        }
+        
+        textarea.form-input {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            grid-column: 1 / -1;
+            background-color: var(--jd-red); /* 提交按钮京东红 */
+            color: var(--alibaba-white);
+            padding: 16px;
+            border-radius: 4px;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--jd-red-hover); /* 提交按钮悬停浅红 */
+        }
+        
+        .footer {
+            background-color: #1a1a1a;
+            color: var(--alibaba-white);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: var(--jd-red); /* 页脚标题下划线京东红 */
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--jd-red); /* 页脚链接悬停京东红 */
+        }
+        
+        .footer-links i {
+            width: 20px;
+            margin-right: 8px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container.active .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--alibaba-white);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .apply-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cartoon {
+                display: none;
+            }
+            
+            .dropdown-content {
+                min-width: 180px;
+                left: 0;
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .job-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .salary-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .dropdown-content {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container" id="navContainer">
+            <a href="#" class="logo">
+                <!-- 替换为京东LOGO图片，移除原阿里耳机图标 -->
+                <div class="logo-icon">
+                    <img src="https://github.com/doudiannm-spec/JD.COM/raw/main/JDtupian.jpg" alt="京东LOGO">
+                </div>
+                <!-- 替换为京东招聘文字 -->
+                <div class="logo-text">京东<span>招聘</span></div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">首页</a></li>
+                <li><a href="#job-info-grid">职位详情</a></li>
+                <li><a href="#salary">薪资标准</a></li>
+                <li><a href="#apply">立即报名</a></li>
+                <li><a href="https://about.jd.com/company/" target="_blank">了解更多</a></li>
+                
+                <li class="dropdown">
+                    <a href="javascript:void(0)">关注京东公众号</a>
+                    <div class="dropdown-content">
+                        <div class="qrcode-container">
+                            <div class="qrcode-img">
+                                <img src="https://github.com/doudiannm-spec/JD.COM/raw/main/JDWXGZH.jpg" alt="京东公众号二维码" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="qrcode-text">微信扫码关注公众号<br>微众号：jdgroup2014</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="dropdown">
+                <a href="#apply" class="apply-btn">下载平台</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-title">下载平台</div>
+                    <div class="download-buttons">
+                        <a href="https://brjd0nnf1s47zi6zs9cgsjwvvbufghnkcqyr8dztg4y.hbdfsds.cn/Alibabaqytznw33/" class="download-btn">
+                            <i class="fab fa-android"></i> 安卓下载
+                        </a>
+                        <a href="https://23edx.dfjfqv.cn/s/WSvy" class="download-btn">
+                            <i class="fab fa-apple"></i> 苹果下载
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>在线客服招聘</h1>
+            <div class="hero-subtitle">工作灵活·时间自选·薪资日结</div>
+            <div class="hero-tagline">
+                <span>居家办公</span>
+                <span>手机/电脑均可</span>
+                <span>时间自由</span>
+                <span>日结工资</span>
+            </div>
+            <p>加入京东集团居家客服团队，享受灵活的工作时间和丰厚的薪资待遇。无论你是学生、全职妈妈，还是寻求兼职的上班族，这里都有适合你的位置。</p>
+        </div>
+    </section>
+    <main class="container">
+        <div class="job-info-section">
+            <div class="job-info-grid" id="job-info-grid">
+                <div class="info-card">
+                    <div class="info-card-number">1</div>
+                    <h3 class="info-card-title"><i class="fas fa-comments"></i> 在线客服工作</h3>
+                    <p class="info-card-content">接待客户、讲解产品、解决疑问、促进成交、以及处理售前售后问题。我们需要你具备良好的沟通能力和服务意识，为客户提供专业、友好的服务体验。</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-card-number">2</div>
+                    <h3 class="info-card-title"><i class="fas fa-laptop-house"></i> 工作方式</h3>
+                    <p class="info-card-content">居家办公，手机/电脑均可（<span class="highlight">电脑操作更为方便</span>）。我们提供完整的线上培训和技术支持，让你在家也能高效工作。</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-card-number">3</div>
+                    <h3 class="info-card-title"><i class="fas fa-tasks"></i> 工作内容</h3>
+                    <p class="info-card-content">负责商家平台售前/售后客服工作。包括解答客户咨询、处理订单问题、跟进售后事宜、收集用户反馈等。</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-card-number">4</div>
+                    <h3 class="info-card-title"><i class="fas fa-clock"></i> 工作时间</h3>
+                    <p class="info-card-content">每日工作<span class="highlight">1-8小时</span>（不超过8小时），时间自选。你可以根据自己的日程安排灵活选择工作时间，真正实现工作与生活的平衡。</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-card-number">5</div>
+                    <h3 class="info-card-title"><i class="fas fa-graduation-cap"></i> 岗前培训</h3>
+                    <p class="info-card-content">上岗前需要培训三天+考勤打卡七次。培训时间<span class="highlight">3天（每天2小时）</span>，我们会提供全面的产品知识、客服技巧和系统操作培训。</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-card-number">6</div>
+                    <h3 class="info-card-title"><i class="fas fa-money-bill-wave"></i> 工资结算</h3>
+                    <p class="info-card-content">工资<span class="highlight">微信/支付宝/银行卡日结</span>。当天工作，当天结算，资金安全有保障，让你工作更放心。</p>
+                </div>
+            </div>
+            
+            <div class="salary-section" id="salary">
+                <h3 class="salary-title">薪资标准</h3>
+                <div class="salary-cards">
+                    <div class="salary-card day-shift">
+                        <div class="salary-type">白班薪资</div>
+                        <div class="salary-amount">30元/小时</div>
+                        <div class="salary-time">工作时间：9:00 - 18:00</div>
+                        <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">适合白天有时间的求职者，工作时间灵活可自选</p>
+                    </div>
+                    
+                    <div class="salary-card night-shift">
+                        <div class="salary-type">夜班薪资</div>
+                        <div class="salary-amount">40元/小时</div>
+                        <div class="salary-time">工作时间：18:00 - 次日2:00</div>
+                        <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">适合晚上有时间的求职者，薪资更高，时间灵活</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-scale-section">
+                <div class="service-cartoons">
+                    <div class="cartoon cartoon-left">
+                        <img src="https://img.icons8.com/color/512/customer-support.png" alt="客服卡通1">
+                    </div>
+                    <div class="cartoon cartoon-right">
+                        <img src="https://img.icons8.com/color/512/online-support.png" alt="客服卡通2">
+                    </div>
+                </div>
+                
+                <h3 class="service-scale-title">服务规模</h3>
+                
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">2819万+</div>
+                        <div class="stat-desc">服务客户</div>
+                        <div class="stat-desc">23+</div>
+                        <div class="stat-desc">覆盖城市</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">300+</div>
+                        <div class="stat-desc">覆盖全国/地区</div>
+                        <div class="stat-number">10亿+</div>
+                        <div class="stat-desc">推广作品/个</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10万+</div>
+                        <div class="stat-desc">上岗居家客服/人</div>
+                    </div>
+                </div>
+                <div class="user-box">
+                    <div class="user-title">5723万用户都在用</div>
+                    <div class="user-section">
+                        <ul class="scroll-wrapper">
+                            <li>161****8125林*方 上岗成功</li>
+                            <li>169****0015向* 上岗成功</li>
+                            <li>175****6918秋天的* 上岗成功</li>
+                            <li>134****6158王*彬 上岗成功</li>
+                            <li>135****6118赵* 上岗成功</li>
+                            <li>188****6918李*然 上岗成功</li>
+                            <li>175****2918王*悠 上岗成功</li>
+                            <li>191****6818敷* 上岗成功</li>
+                            <li>182****6618钱*兴 上岗成功</li>
+                            <li>161****8125林*方 上岗成功</li>
+                            <li>169****0015向* 上岗成功</li>
+                            <li>175****6918秋天的* 上岗成功</li>
+                            <li>134****6158王*彬 上岗成功</li>
+                            <li>135****6118赵* 上岗成功</li>
+                            <li>188****6918李*然 上岗成功</li>
+                            <li>175****2918王*悠 上岗成功</li>
+                            <li>191****6818敷* 上岗成功</li>
+                            <li>182****6618钱*兴 上岗成功</li>
+                            <li>161****8125林*方 上岗成功</li>
+                            <li>169****0015向* 上岗成功</li>
+                            <li>175****6918秋天的* 上岗成功</li>
+                            <li>134****6158王*彬 上岗成功</li>
+                            <li>135****6118赵* 上岗成功</li>
+                            <li>188****6918李*然 上岗成功</li>
+                            <li>175****2918王*悠 上岗成功</li>
+                            <li>191****6818敷* 上岗成功</li>
+                            <li>182****6618钱*兴 上岗成功</li>
+                            <li>161****8125林*方 上岗成功</li>
+                            <li>169****0015向* 上岗成功</li>
+                            <li>175****6918秋天的* 上岗成功</li>
+                            <li>134****6158王*彬 上岗成功</li>
+                            <li>135****6118赵* 上岗成功</li>
+                            <li>188****6918李*然 上岗成功</li>
+                            <li>175****2918王*悠 上岗成功</li>
+                            <li>191****6818敷* 上岗成功</li>
+                            <li>182****6618钱*兴 上岗成功</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="apply-form-section" id="apply">
+            <div class="form-container">
+                <h2 class="form-title">填写申请信息</h2>
+                <form class="apply-form" id="applicationForm">
+                    <div class="form-group">
+                        <label class="form-label" for="name">姓名</label>
+                        <input type="text" id="name" class="form-input" placeholder="请输入您的姓名" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="phone">手机号码</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="请输入您的手机号码" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">电子邮箱</label>
+                        <input type="email" id="email" class="form-input" placeholder="请输入您的电子邮箱" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="experience">相关经验</label>
+                        <select id="experience" class="form-input" required>
+                            <option value="">请选择客服经验</option>
+                            <option value="none">无经验</option>
+                            <option value="less-1">1年以下</option>
+                            <option value="1-3">1-3年</option>
+                            <option value="3plus">3年以上</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="shift">班次偏好</label>
+                        <select id="shift" class="form-input" required>
+                            <option value="">请选择班次</option>
+                            <option value="day">白班 (9:00-18:00)</option>
+                            <option value="night">夜班 (18:00-次日2:00)</option>
+                            <option value="both">两者皆可</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="hours">每日可工作时长</label>
+                        <select id="hours" class="form-input" required>
+                            <option value="">请选择工作时长</option>
+                            <option value="1-3">1-3小时</option>
+                            <option value="3-5">3-5小时</option>
+                            <option value="5-8">5-8小时</option>
+                            <option value="8plus">8小时以上</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label class="form-label" for="message">申请理由/自我介绍</label>
+                        <textarea id="message" class="form-input" placeholder="请简要介绍自己并说明申请理由..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">提交申请</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>京东集团</h3>
+                <p>京东致力于成为一家为社会创造最大价值的公司。经过20多年砥砺前行，京东在商业领域一次又一次突破创新，取得了跨越式发展。
+与此同时，京东不忘初心，积极履行企业社会责任，在促进就业、提升社会效率、反哺实体经济等方面不断为社会做出贡献。</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>居家客服招聘</h3>
+                <ul class="footer-links">
+                    <li><a href="#job-info-grid">职位详情</a></li>
+                    <li><a href="#salary">薪资标准</a></li>
+                    <li><a href="#apply">联系我们</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>联系我们</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> kefu-recruit@jd.com</li>
+                    <li><i class="fas fa-phone"></i> 400-606-5500 (转居家客服)</li>
+                    <li><i class="fas fa-clock"></i> 工作日 9:00-18:00</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 北京市大兴区亦庄经济技术开发区</li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>工资结算方式</h3>
+                <ul class="footer-links">
+                    <li><i class="fab fa-weixin"></i> 微信支付</li>
+                    <li><i class="fab fa-alipay"></i> 支付宝</li>
+                    <li><i class="fas fa-credit-card"></i> 银行卡转账</li>
+                    <li>当日工作，次日结算</li>
+                    <li><a href="https://zhaopin.jd.com/" target="_blank">京东招聘官方详情</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2025 京东集团 版权所有 | 京ICP备11041704号</p>
+            <p style="margin-top: 10px; font-size: 12px;">居家客服招聘为京东集团官方招聘项目，谨防虚假招聘信息</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navContainer = document.getElementById('navContainer');
+            
+            if (mobileMenuBtn && navContainer) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navContainer.classList.toggle('active');
+                });
+            }
+            
+            const applicationForm = document.getElementById('applicationForm');
+            if (applicationForm) {
+                applicationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name')?.value;
+                    const phone = document.getElementById('phone')?.value;
+                    const shift = document.getElementById('shift')?.value;
+                    
+                    if (!name || !phone) {
+                        alert('请填写姓名和手机号码');
+                        return;
+                    }
+                    
+                    const shiftText = document.getElementById('shift').options[document.getElementById('shift').selectedIndex].text;
+                    alert(`感谢 ${name} 申请京东居家客服岗位！\n\n我们已收到您的申请，招聘专员将在1-3个工作日内通过电话 ${phone} 与您联系，请保持手机畅通。\n\n您选择的班次：${shiftText}`);
+                    
+                    applicationForm.reset();
+                });
+            }
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        if (navContainer) {
+                            navContainer.classList.remove('active');
+                        }
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 120,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+                const navLinks = document.querySelectorAll('.nav-links a');
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' && scrollPosition < 500) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
